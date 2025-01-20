@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://dctbr3qsygawg"]
+
+[ext_resource type="Script" path="res://pemain.gd" id="1_klwiw"]
+[ext_resource type="Texture2D" uid="uid://dn0nnqeni1rsx" path="res://character_0000.png" id="1_xa3rf"]
+[ext_resource type="Script" path="res://coin.gd" id="3_owvni"]
+[ext_resource type="Texture2D" uid="uid://fi1l5y1icw5v" path="res://tile_0151.png" id="4_d5vwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbcv"]
+size = Vector2(23, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scgqo"]
+radius = 40.8167
+
+[node name="Node2D" type="Node2D"]
+
+[node name="pemain" type="CharacterBody2D" parent="."]
+position = Vector2(-1, 0)
+script = ExtResource("1_klwiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="pemain"]
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("1_xa3rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pemain"]
+position = Vector2(1.5, 2.5)
+shape = SubResource("RectangleShape2D_kjbcv")
+
+[node name="Camera2D" type="Camera2D" parent="pemain"]
+position = Vector2(3, 2)
+
+[node name="coin" type="Area2D" parent="."]
+script = ExtResource("3_owvni")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin"]
+texture_filter = 1
+position = Vector2(71, 1)
+texture = ExtResource("4_d5vwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin"]
+shape = SubResource("CircleShape2D_scgqo")
+
+[node name="coin2" type="Area2D" parent="."]
+script = ExtResource("3_owvni")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin2"]
+texture_filter = 1
+position = Vector2(116, -55)
+texture = ExtResource("4_d5vwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin2"]
+position = Vector2(316, -118)
+shape = SubResource("CircleShape2D_scgqo")
+
+[node name="coin3" type="Area2D" parent="."]
+script = ExtResource("3_owvni")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin3"]
+texture_filter = 1
+position = Vector2(-89, 69)
+texture = ExtResource("4_d5vwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin3"]
+position = Vector2(-195, -115)
+shape = SubResource("CircleShape2D_scgqo")
+
+[node name="coin4" type="Area2D" parent="."]
+script = ExtResource("3_owvni")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin4"]
+texture_filter = 1
+position = Vector2(-147, -34)
+texture = ExtResource("4_d5vwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin4"]
+position = Vector2(118, 89)
+shape = SubResource("CircleShape2D_scgqo")
+
+[node name="coin5" type="Area2D" parent="."]
+script = ExtResource("3_owvni")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin5"]
+texture_filter = 1
+position = Vector2(-54, -143)
+texture = ExtResource("4_d5vwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin5"]
+position = Vector2(-331, 40)
+shape = SubResource("CircleShape2D_scgqo")
+
+[connection signal="body_entered" from="coin" to="coin" method="_on_body_entered"]
+[connection signal="body_entered" from="coin2" to="coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="coin3" to="coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="coin4" to="coin4" method="_on_body_entered"]
+[connection signal="body_entered" from="coin5" to="coin5" method="_on_body_entered"]
